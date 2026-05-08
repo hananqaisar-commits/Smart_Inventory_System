@@ -18,7 +18,7 @@ class Product implements Comparable<Product> {
     public Product(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
             String supplierName) {
 
-        if (this.pdname == null || this.pdname.trim().isEmpty()) {
+        if (pdname == null || pdname.trim().isEmpty()) {
             System.out.println("Invalid");
         } else {
             this.pdname = pdname;
@@ -50,31 +50,31 @@ class Product implements Comparable<Product> {
     public String ID_Generator() {
 
         if (getClass().getSimpleName().equalsIgnoreCase("Crockery")) {
-            return String.format("%-2s%00d", "CK", ++count1);
+            return String.format("%-2s%03d", "CK", ++count1);
         }
 
         if (getClass().getSimpleName().equalsIgnoreCase("Accessory")) {
-            return String.format("%-2s%00d", "AS", ++count2);
+            return String.format("%-2s%03d", "AS", ++count2);
         }
 
         if (getClass().getSimpleName().equalsIgnoreCase("Product")) {
-            return String.format("%-2s%00d", "PR", ++count3);
+            return String.format("%-2s%03d", "PR", ++count3);
         }
 
         if (getClass().getSimpleName().equalsIgnoreCase("Electronics")) {
-            return String.format("%-2s%00d", "EL", ++count4);
+            return String.format("%-2s%03d", "EL", ++count4);
         }
 
         if (getClass().getSimpleName().equalsIgnoreCase("Furniture")) {
-            return String.format("%-2s%00d", "FU", ++count5);
+            return String.format("%-2s%03d", "FU", ++count5);
         }
 
         if (getClass().getSimpleName().equalsIgnoreCase("Clothing")) {
-            return String.format("%-2s%00d", "CL", ++count6);
+            return String.format("%-2s%03d", "CL", ++count6);
         }
 
         if (getClass().getSimpleName().equalsIgnoreCase("Grocery")) {
-            return String.format("%-2s%00d", "GR", ++count7);
+            return String.format("%-2s%03d", "GR", ++count7);
         }
 
         return "000";
@@ -150,7 +150,7 @@ class Product implements Comparable<Product> {
         int result = this.pdname.compareToIgnoreCase(other.pdname);
 
         if (result == 0) {
-            return ((Double) this.unitPrice).compareTo(other.unitPrice);
+            return Double.compare(this.getUnitPrice(), other.getUnitPrice());
         }
 
         return result;
