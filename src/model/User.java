@@ -9,7 +9,8 @@ abstract class User {
     final String userID;
     private String userName;
     private String password;
-    static int count1, count2, count3 = 0;
+    static int count1, count2 = 0;
+    private final LocalDateTime now;
 
     enum role {
         Admin, Cashier, Salesman
@@ -24,13 +25,7 @@ abstract class User {
         } else
             this.userName = userName;
         this.userID = this.ID_Generator();
-    }
-
-    public User(String userName, String passwordHashable) {
-        this.userName = userName;
-        this.password = passwordHashable;
-        this.userID = this.ID_Generator();// use mine algorithm
-
+        now = LocalDateTime.now();
     }
 
     // Setters & Getters
@@ -48,6 +43,10 @@ abstract class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 
     public String getPassword() {
@@ -90,19 +89,42 @@ abstract class User {
 
             return String.format("%-2s%02d", "CA", ++count2);
         }
-        if (getClass().getSimpleName().equalsIgnoreCase("Product")) {
 
-            return String.format("%-2s%03d", "PR", ++count3);
-        }
         return "000";// if no type match then return 000 string
     }
 
     public String createdAT() {
-        return String.format("User: %-16s created at %s", this.getUserName(), LocalDateTime.now());
+        return String.format("User: %-16s created at %s", this.getUserName(), now);
+    }
+
+    public boolean verifyPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] bytes = md.digest(password.getBytes());
+            String hex2 = HexFormat.of().formatHex(bytes);
+
+            if (!hex2.equals(getPasswordHashed())) {
+                return false;
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.getMessage();
+            return false;
+        }
+        return true;
+    }
+
+    public void updateUsername(String newName) {
+
+        setUserName(newName);
+        System.out.println("Sucessfully updated");
+    }
+
+    public void toFilestore() {
+        System.out.printf("%-6s %-16s %-10s %s", getUserID(), getUserName(), getClass().getSimpleName(), createdAT());
     }
 
     public String toString() {
-        return String.format("User: %-10s(%-10s) %s Account locked?: %b\n", this.getClass().getSimpleName(),
+        return String.format("User: %-10s(%-10s) %s Account locked -> %b\n", this.getClass().getSimpleName(),
                 this.getUserName(),
                 LocalDateTime.now(), this.isLocked());
     }
