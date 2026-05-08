@@ -1,11 +1,14 @@
 package model;
 
+import java.util.*;//need to convert binary code to hexa
 import java.time.LocalDateTime;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 abstract class User {
     final String userID;
     private String userName;
-    private String passwordHash;
+    private String password;
     static int count1, count2, count3 = 0;
 
     enum role {
@@ -16,14 +19,17 @@ abstract class User {
 
     // Constructor
     public User(String userName) {
-        this.userName = userName;
+        if (userName == null || userName.trim().isEmpty()) {
+            System.out.println("Invalid");
+        } else
+            this.userName = userName;
         this.userID = this.ID_Generator();
     }
 
-    public User(String userName, String passwordHash) {
+    public User(String userName, String passwordHashable) {
         this.userName = userName;
-        this.passwordHash = passwordHash;
-        this.userID = this.ID_Generator();
+        this.password = passwordHashable;
+        this.userID = this.ID_Generator();// use mine algorithm
 
     }
 
@@ -34,15 +40,22 @@ abstract class User {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        if (userName == null || userName.trim().isEmpty()) {
+            System.out.println("Invalid");
+        } else
+            this.userName = userName;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
+    }
+
+    public String getPasswordHashed() {
+        return this.hashAlgorithm();
     }
 
     public boolean isLocked() {
@@ -51,18 +64,35 @@ abstract class User {
 
     // methods
 
+    // public String formatHex(byte[] bytes) {
+    // return this.formatHex(bytes, 0, bytes.length);
+    // } I picked this method from definition (Class HexFormat)
+    // i am using this to convert array of byte to hexa(String) bcz mostly i saw
+    // string hexa hashes
+    public String hashAlgorithm() {
+        try {
+            MessageDigest message = MessageDigest.getInstance("SHA-256");// use sha-256 algorithm
+            byte[] bytes = message.digest(this.getPassword().getBytes());// digest mine password with algorithm sha-256
+            String hex = HexFormat.of().formatHex(bytes);
+            return hex;
+        } catch (NoSuchAlgorithmException e) {// catch excemtion if not available algorithm
+            e.getMessage();
+            return null;
+        }
+    }
+
     public String ID_Generator() {
         if (getClass().getSimpleName().equalsIgnoreCase("Admin")) {
 
-            return String.format("%-2s%00d", "AD", ++count1);
+            return String.format("%-2s%02d", "AD", ++count1);
         }
         if (getClass().getSimpleName().equalsIgnoreCase("Cashier")) {
 
-            return String.format("%-2s%00d", "CA", ++count2);
+            return String.format("%-2s%02d", "CA", ++count2);
         }
         if (getClass().getSimpleName().equalsIgnoreCase("Product")) {
 
-            return String.format("%-2s%000d", "PR", ++count3);
+            return String.format("%-2s%03d", "PR", ++count3);
         }
         return "000";// if no type match then return 000 string
     }
@@ -72,7 +102,8 @@ abstract class User {
     }
 
     public String toString() {
-        return String.format("User: %-16s\n%s Acoount locked: %b\n", this.getClass().getSimpleName(),
+        return String.format("User: %-10s(%-10s) %s Account locked?: %b\n", this.getClass().getSimpleName(),
+                this.getUserName(),
                 LocalDateTime.now(), this.isLocked());
     }
 }
