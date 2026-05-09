@@ -6,10 +6,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 abstract class User {
-    final String userID;
+
+    final String userID, firstname, lastname;
     private String userName;
     private String password;
-    static int count1, count2 = 0;
+    private String gmail;
+    static int count1 = 0, count2 = 0;
     private final LocalDateTime now;
 
     enum role {
@@ -19,12 +21,24 @@ abstract class User {
     private boolean isLocked;// false by deafult mean it is not locked
 
     // Constructor
-    public User(String userName) {
-        if (userName == null || userName.trim().isEmpty()) {
-            System.out.println("Invalid");
-        } else
-            this.userName = userName;
-        this.userID = this.ID_Generator();
+
+    public User(String firstname, String lastname,
+            String userName, String gmail,
+            String password) {
+
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.userName = userName;
+        this.gmail = gmail;
+        this.password = password;
+
+        // i have to add ke jab user name pehlay hi exist krta ho to us ko msg display
+        // karna hai already exist plz use new one
+
+        this.userID = this.ID_Generator();// Id-Generator will assign automatically id to it Which will be unique
+
+        System.out.println("Account created sucessfull");
+
         now = LocalDateTime.now();
     }
 
@@ -34,11 +48,20 @@ abstract class User {
         return userName;
     }
 
+    public String getGmail() {
+        return gmail;
+    }
+
     public void setUserName(String userName) {
+
         if (userName == null || userName.trim().isEmpty()) {
+
             System.out.println("Invalid");
-        } else
+
+        } else {
+
             this.userName = userName;
+        }
     }
 
     public void setPassword(String password) {
@@ -68,64 +91,142 @@ abstract class User {
     // } I picked this method from definition (Class HexFormat)
     // i am using this to convert array of byte to hexa(String) bcz mostly i saw
     // string hexa hashes
+
     public String hashAlgorithm() {
+
         try {
+
             MessageDigest message = MessageDigest.getInstance("SHA-256");// use sha-256 algorithm
+
             byte[] bytes = message.digest(this.getPassword().getBytes());// digest mine password with algorithm sha-256
-            String hex = HexFormat.of().formatHex(bytes);
+
+            String hex = HexFormat.of().formatHex(bytes);// convert bytes into hexadecimal formatt
+
             return hex;
+
         } catch (NoSuchAlgorithmException e) {// catch excemtion if not available algorithm
-            e.getMessage();
+
+            e.printStackTrace();
+
             return null;
         }
     }
 
+    public void changePassword(String oldPassword,
+            String newPassed_1,
+            String newPassed_2) {
+
+        try {
+
+            MessageDigest message = MessageDigest.getInstance("SHA-256");// use sha-256 algorithm
+
+            byte[] bytes3 = message.digest(oldPassword.getBytes());// digest mine password with algorithm sha-256
+
+            String hex3 = HexFormat.of().formatHex(bytes3);// convert bytes into hexadecimal formatt
+
+            if (!hex3.equals(this.getPasswordHashed())) {
+
+                System.out.println("Old password is wrong");
+
+                return;
+            }
+
+        } catch (NoSuchAlgorithmException e) {
+
+            e.printStackTrace();
+
+            return;
+        }
+
+        System.out.println("Old password matched!!");
+
+        if (newPassed_1.equals(newPassed_2)) {
+
+            this.password = newPassed_1;
+
+            System.out.println("Changed Password Sucessfull");
+
+        } else {
+
+            System.out.println("Failed");
+        }
+
+    }
+
+    public void forgetPassword() {
+
+    }
+
     public String ID_Generator() {
+
         if (getClass().getSimpleName().equalsIgnoreCase("Admin")) {
 
-            return String.format("%-2s%02d", "AD", ++count1);
+            return String.format("%s%02d", "AD", ++count1);
         }
+
         if (getClass().getSimpleName().equalsIgnoreCase("Cashier")) {
 
-            return String.format("%-2s%02d", "CA", ++count2);
+            return String.format("%s%02d", "CA", ++count2);
         }
 
         return "000";// if no type match then return 000 string
     }
 
     public String createdAT() {
-        return String.format("User: %-16s created at %s", this.getUserName(), now);
+
+        return String.format("User: %-16s created at %s",
+                this.getUserName(),
+                this.now);
     }
 
     public boolean verifyPassword(String password) {
+
         try {
+
             MessageDigest md = MessageDigest.getInstance("SHA-256");
+
             byte[] bytes = md.digest(password.getBytes());
+
             String hex2 = HexFormat.of().formatHex(bytes);
 
             if (!hex2.equals(getPasswordHashed())) {
+
                 return false;
             }
+
         } catch (NoSuchAlgorithmException e) {
-            e.getMessage();
+
+            e.printStackTrace();
+
             return false;
         }
+
         return true;
     }
 
     public void updateUsername(String newName) {
 
         setUserName(newName);
+
         System.out.println("Sucessfully updated");
     }
 
     public void toFilestore() {
-        System.out.printf("%-6s %-16s %-10s %s", getUserID(), getUserName(), getClass().getSimpleName(), createdAT());
+
+        System.out.printf("%-6s %-16s %-10s %s",
+                getUserID(),
+                getUserName(),
+                getClass().getSimpleName(),
+                createdAT());
     }
 
     public String toString() {
-        return String.format("User: %-10s(%-10s) %s Account locked -> %b\n", this.getClass().getSimpleName(),
+
+        return String.format(
+                "User: %-10s(%-10s) %s Account locked -> %b\n",
+                this.getClass().getSimpleName(),
                 this.getUserName(),
-                LocalDateTime.now(), this.isLocked());
+                this.now,
+                this.isLocked());
     }
 }
