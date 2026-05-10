@@ -1,3 +1,4 @@
+package com.example.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,14 +25,14 @@ static int count=0;
         this.taxAmount = taxAmount;
         this.paymentMethod = paymentMethod;
         this.dateTime = dateTime;
-       
+
           if(discount!=null){
         this.discount = discount;
     }       else {
       System.out.println("Invalid!");
     }     }
 
-    
+
 double totalCompute(){
     double grandTotal=0;
      double finalAmount=0;

@@ -1,4 +1,4 @@
-package model;
+package com.example.model;
 
 import java.util.ArrayList;
 
@@ -11,9 +11,9 @@ class Product implements Comparable<Product> {
     private int stockQuantity;
     private int reorderlevel;
     private String supplierName;
-    ArrayList<StockObserver> Observer;
-    static int count1, count2, count3 = 0;
-    static int count4, count5, count6, count7 = 0;
+//    ArrayList<StockObserver> Observer;
+    static int count1 = 0, count2 = 0, count3 = 0;
+    static int count4 = 0, count5 = 0, count6 = 0, count7 = 0;
 
     public Product(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
             String supplierName) {
@@ -108,11 +108,11 @@ class Product implements Comparable<Product> {
         return unitPrice;
     }
 
-    void addObserver(StockObserver other) {
-
-        Observer.add(other);
-
-    }
+//    void addObserver(StockObserver other) {
+//
+//        Observer.add(other);
+//
+//    }
 
     void deductsales(int stocksaled) {
 
@@ -125,13 +125,13 @@ class Product implements Comparable<Product> {
 
     }
 
-    void notifyObserver() {
-
-        for (StockObserver watcher : Observer) {
-            watcher.Notify();
-        }
-
-    }
+//    void notifyObserver() {
+//
+//        for (StockObserver watcher : Observer) {
+//            watcher.Notify();
+//        }
+//
+//    }
 
     // equals Method
     // boolean equals(Product other){
