@@ -85,6 +85,16 @@ public class Admin extends User {
         this.failedLoginAttempts = failedLoginAttempts;
     }
 
+    @Override
+    public void setPassword(String password_1) {
+        super.setPassword(password_1);
+    }
+
+    @Override
+    public String getPassword() {
+        return super.getPassword();
+    }
+
     public void addUser(User newuser) {
         if (!users.contains(newuser) && this.canManageUsers) {
             users.add(newuser);

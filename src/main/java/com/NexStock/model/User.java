@@ -37,7 +37,6 @@ public abstract class User {
         } else
             this.firstname = firstname;
 
-
         this.userName = userName;
 
         if (gmail == null || gmail.trim().isEmpty() || !gmail.contains("@")) {
@@ -51,7 +50,7 @@ public abstract class User {
         now = LocalDateTime.now();
         if (this.getPassword().equals(this.getRetrypassword())) {
             System.out.println("Account created successful");
-//
+            //
 
             System.out.println("Unique user id: " + this.userID);
             System.out.println(this.firstname);
@@ -64,7 +63,6 @@ public abstract class User {
             return;
         }
         System.out.println("No account created");
-
 
     }
 
@@ -97,7 +95,6 @@ public abstract class User {
     public String getFirstname() {
         return firstname;
     }
-
 
     public void setUserName(String userName) {
 
