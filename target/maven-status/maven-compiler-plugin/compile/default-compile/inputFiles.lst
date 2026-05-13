@@ -1,3 +1,4 @@
+/home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/security/passwrod_generator.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/InvoiceItem.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/DiscountStrategy.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/Admin.java
@@ -9,6 +10,7 @@
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/User.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/Transaction.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/products/Accessory.java
+/home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/addProductcontroller.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/products/Grocery.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/products/Clothing.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/Customer.java

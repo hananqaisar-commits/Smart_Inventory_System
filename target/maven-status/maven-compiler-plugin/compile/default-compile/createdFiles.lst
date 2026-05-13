@@ -10,10 +10,12 @@ com/NexStock/model/User.class
 com/NexStock/security/Password_Hasher.class
 com/NexStock/model/Transaction.class
 com/NexStock/security/Password_Generator.class
-main/java/com/NexStock/products/Electronics.class
 com/NexStock/products/Crockery.class
+com/NexStock/products/Electronics.class
 com/NexStock/products/Accessory.class
 com/NexStock/controller/SceneNewController.class
 com/NexStock/products/Grocery.class
+com/NexStock/controller/addProductcontroller.class
 com/NexStock/model/User$role.class
+com/NexStock/security/passwrod_generator.class
 com/NexStock/products/Furniture.class

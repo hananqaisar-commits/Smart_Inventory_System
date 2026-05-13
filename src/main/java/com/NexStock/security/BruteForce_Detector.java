@@ -1,6 +1,6 @@
-//package main.java.com.NexStock.security;
+//package com.NexStock.security;
 //
-//import main.java.com.NexStock.model.*;
+//import com.NexStock.model.*;
 //
 //public class BruteForce_Detector {
 //

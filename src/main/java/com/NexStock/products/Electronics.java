@@ -1,4 +1,4 @@
-package main.java.com.NexStock.products;
+package com.NexStock.products;
 
 import com.NexStock.model.Product;
 
