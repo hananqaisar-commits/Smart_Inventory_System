@@ -7,7 +7,7 @@ public class Furniture extends Product {
     private static int count5;
 
     public Furniture(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
-                     String supplierName) {
+            String supplierName) {
         super(pdname, category, unitPrice, stockQuantity, reorderlevel, supplierName);
     }
 
@@ -16,4 +16,9 @@ public class Furniture extends Product {
         return String.format("%-2s%03d", "FU", ++count5);
     }
 
+    public String tofile() {
+        return this.ID_Generator()
+                + (", Furniture: " + this.getPdname() + ", " + this.getCategory() + ", " + this.getUnitPrice() + ", "
+                        + this.getStockQuantity() + ", " + this.getReorderlevel() + ", " + this.getSupplierName());
+    }
 }
