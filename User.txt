@@ -1,0 +1,2 @@
+Admin{accessLevel='3232323', canAddProduct=true, canDeleteProduct=true, canManageUsers=true, canViewReports=true, userID='AD01', Password=1efb8a20f8e110eb61322f22441a6f72017ef5c7e6c8a062556a3351f043f2f3
+}

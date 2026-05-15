@@ -1,2 +1,6 @@
-package com.NexStock.controller;public class addUser {
+package com.NexStock.controller;
+
+public class addUser {
+
+    
 }
