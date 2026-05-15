@@ -2,7 +2,9 @@ package com.NexStock.FileHandler;
 
 import java.io.*;
 
+
 public class fileIO {
+   
 
     public void filereader(String datafileName) {
         try {
