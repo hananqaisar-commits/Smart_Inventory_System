@@ -20,17 +20,11 @@ public abstract class User {
 
     Password_Hasher p1 = new Password_Hasher();
 
-    enum role {
-        Admin, Cashier, Salesman
-    }
-
-    ;
-
     // Constructor
 
     public User(String firstname,
-                String userName, String gmail,
-                String password1, String password2) {
+            String userName, String gmail,
+            String password1, String password2) {
 
         if (firstname == null || userName.trim().isEmpty()) {
             this.firstname = "";
@@ -52,14 +46,6 @@ public abstract class User {
             System.out.println("Account created successful");
             //
 
-            System.out.println("Unique user id: " + this.userID);
-            System.out.println(this.firstname);
-            System.out.println("login attemts remain :" + this.login_Attempts_Remain);
-            System.out.println("This user entered password:" + this.password);
-            System.out.println("This user again entered password to match previous: " + this.retrypassword);
-            System.out.println("Password stored in variable: " + this.getPassword());
-            System.out.println("User created at: " + this.createdAT());
-            System.out.println("ToString() method: " + this.toString());
             return;
         }
         System.out.println("No account created");
@@ -133,8 +119,8 @@ public abstract class User {
     // string hexa hashes
 
     public void changePassword(String oldPassword,
-                               String newPassed_1,
-                               String newPassed_2) {
+            String newPassed_1,
+            String newPassed_2) {
 
         if (this.isLocked) {
             System.out.println("Account blocked");

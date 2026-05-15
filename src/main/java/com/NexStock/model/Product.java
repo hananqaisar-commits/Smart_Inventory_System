@@ -20,8 +20,12 @@ public abstract class Product implements Comparable<Product>, StockObserver {
     static int count1 = 0, count2 = 0, count3 = 0;
     static int count4 = 0, count5 = 0, count6 = 0, count7 = 0;
 
+    public enum productlist {
+        Accessory, Clothing, Crockery, Electronics, Furniture, Grocery
+    }
+
     public Product(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
-                   String supplierName) {
+            String supplierName) {
 
         if (pdname == null || pdname.trim().isEmpty()) {
             System.out.println("Invalid");
@@ -51,10 +55,6 @@ public abstract class Product implements Comparable<Product>, StockObserver {
 
         this.supplierName = supplierName;
         Product.list.add(this);
-    }
-
-    public enum productlist {
-        Accessory, Clothing, Crockery, Electronics, Furniture, Grocery
     }
 
     // Methods, Setter & Getters
@@ -105,8 +105,7 @@ public abstract class Product implements Comparable<Product>, StockObserver {
         for (StockObserver stockObserver : observer) {
             System.out.println(
                     "Notification sent to " + stockObserver.getClass().getSimpleName()
-                            + " for product: " + this.productID
-            );
+                            + " for product: " + this.productID);
             stockObserver.Notify();
         }
     }

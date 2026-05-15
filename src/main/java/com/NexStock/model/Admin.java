@@ -1,5 +1,8 @@
 package com.NexStock.model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Admin extends User {
 
     // Admin specific fields
@@ -11,8 +14,8 @@ public class Admin extends User {
     private static int failedLoginAttempts;
 
     public Admin(String firstname,
-                 String userName, String gmail,
-                 String password1, String password2, String accessLevel) {
+            String userName, String gmail,
+            String password1, String password2, String accessLevel) {
 
         super(firstname, userName, gmail, password1, password2); // User ka constructor
 
@@ -21,7 +24,6 @@ public class Admin extends User {
         this.canDeleteProduct = true;
         this.canManageUsers = true;
         this.canViewReports = true;
-
 
     }
 
@@ -35,7 +37,6 @@ public class Admin extends User {
 
         }
     }
-
 
     public String getAccessLevel() {
         return accessLevel;
@@ -117,4 +118,24 @@ public class Admin extends User {
         }
     }
 
+    public String tofile() {
+        return ("Admin ---> Name: " + this.getFirstname() + ", ID: " + this.getUserID() + ", Access Level: "
+                + this.accessLevel + ", Can Add Product: " + this.canAddProduct + ", Can Delete Product: "
+                + this.canDeleteProduct + ", Can Manage Users: " + this.canManageUsers + ", Can View Reports: "
+                + this.canViewReports + ", Password: " + this.getPassword());
+    }
+
+    @Override
+    public String toString() {
+        return "Admin   ---> {" +
+                "accessLevel='" + accessLevel + '\'' +
+                ", canAddProduct=" + canAddProduct +
+                ", canDeleteProduct=" + canDeleteProduct +
+                ", canManageUsers=" + canManageUsers +
+                ", canViewReports=" + canViewReports +
+                ", userID='" + userID + '\'' +
+                ", Password=" + getPassword() +
+                "\n" +
+                '}';
+    }
 }
