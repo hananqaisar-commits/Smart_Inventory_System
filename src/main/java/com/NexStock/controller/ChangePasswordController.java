@@ -40,11 +40,16 @@ public class ChangePasswordController {
         IO.filereader("User.txt");
 
         for (User this_userhas : IO.readList_Users) {
-            if (this_userhas.getUserName().equals(username.getText())) {
-                if (this_userhas.getPasswordHashed().equals(p1.hashAlgorithm(oldPassword.getText())))
-                    this_userhas.changePassword(oldPassword.getText(), newPassword.getText(), retypePassword.getText());
-
+            if (this_userhas.getPasswordHashed().equals(p1.hashAlgorithm(oldPassword.getText()))) {
+                this_userhas.changePassword(oldPassword.getText(), newPassword.getText(), retypePassword.getText());
                 IO.clearfile("User.txt");
+                for (User writeuser : IO.readList_Users) {
+                    if (writeuser instanceof Admin a) {
+                        IO.filewriter("User.txt", a.tofile());
+                    } else if (writeuser instanceof Cashier c) {
+                        IO.filewriter("User.txt", c.tofile());
+                    }
+                }
                 for (User writeuser : IO.readList_Users) {
                     if (writeuser instanceof Admin a) {
                         IO.filewriter("User.txt", a.tofile());

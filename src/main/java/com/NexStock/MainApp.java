@@ -8,9 +8,9 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) {//here a controller object is created
-        System.out.println("App starting, setting stage... let's gooo (' ? ')");//Just for fun
+        System.out.println("App starting, setting stage... let's goooooo (' ? ')");//Just for fun
         Sceneswitches.setStage(stage);
-        Sceneswitches.now_switchin("createAccount.fxml");
+        Sceneswitches.now_switchin("login.fxml");
     }
 
     public static void main(String[] args) {

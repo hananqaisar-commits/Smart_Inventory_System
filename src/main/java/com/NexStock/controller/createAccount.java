@@ -78,6 +78,7 @@ public class createAccount {
             if (user_current.getUserName().equals(usernameEntered)) {
                 showAlert("Error", "Username already exists. Please choose a different username.",
                         "Duplicate Username");
+                return;
             }
         }
 
@@ -94,6 +95,7 @@ public class createAccount {
 
             showAlert("Error", "Username cannot be empty and Password must be at least 8 characters long.",
                     "Input Error");
+            return;
 
         } else if (passwordbutton.getText().matches("[0-9]+") || passwordbutton.getText().matches("[a-zA-Z]+")) {// check
             // that
@@ -102,12 +104,6 @@ public class createAccount {
             // digits
             showAlert("Password Strength", "Password should contain at least one letter and special character",
                     "Weak Password");
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setResizable(false);
-            alert.setContentText("Password should contain at least one letter and special character");
-            alert.setHeaderText("Weak Password");
-            alert.setTitle("Password Strength");
-            alert.showAndWait();
             return;
 
         }
@@ -139,7 +135,6 @@ public class createAccount {
                 accountcreated = true;
 
             }
-
         }
         for (User u : users) {
             if (u instanceof Admin) {
