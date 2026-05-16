@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import com.NexStock.model.User;
 import java.util.ArrayList;
 import com.NexStock.FileHandler.*;
 
@@ -83,20 +84,47 @@ public class LoginController {
             return;
         }
 
+        boolean userFound = false;
         IO.filereader("User.txt");
         for (User login_User : IO.readList_Users) {
             if (login_User.getUserName().equals(user)) {
+                userFound = true;
+                if (login_User.get_isLocked()) {
+                    showAlert("Account Locked", "Your account is locked due to too many failed login attempts.");
+                    return;
+                }
                 if (login_User.getPasswordHashed().equals(pass)) {
-                    System.out.println("Login successful");
                     Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
                     Sceneswitches.setStage(stage);
+                    System.out.println("Login successful from file for user: " + user);
+                    User.setLogin_Attempts_Remain(3);// if succesfull then set limit again to 3 for next time
                     Sceneswitches.now_switchin("Dashboard.fxml");
+
+                } else {// i hve to lock account if user enter wrong password 3 times so i have to
+                        // decrease login attempt and if it is 0 then lock account
+                    System.out.println("Login failed for user: " + user);
+                    User.setLogin_Attempts_Remain(User.getLogin_Attempts_Remain() - 1);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Login Failed");
+                    alert.setHeaderText("Invalid username or password");
+                    alert.setContentText("You have " + User.getLogin_Attempts_Remain() + " login attempts remaining.");
+                    alert.resizableProperty().set(false);
+                    alert.showAndWait();
+
+                    if (User.getLogin_Attempts_Remain() <= 0) {
+                        showAlert("Account Locked", "Too many failed login attempts. Your account has been locked.");
+                        login_User.setLocked(true);
+                        return;
+                    }
+
                 }
-            } else {
-                System.out.println("Next user");
+                break;
             }
         }
 
+        if (!userFound) {
+            showAlert("User not found", "No account found with the provided username.");
+        }
     }
 
     private void showAlert(String title, String message) {
