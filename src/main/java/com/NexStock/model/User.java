@@ -16,7 +16,7 @@ public abstract class User {
     private final LocalDateTime now;
     private boolean isLocked = false;
     public static ArrayList<User> users = new ArrayList<>();
-    private int login_Attempts_Remain = 3;
+    private static int login_Attempts_Remain = 3;
 
     Password_Hasher p1 = new Password_Hasher();
 
@@ -56,6 +56,14 @@ public abstract class User {
 
     public String getRetrypassword() {
         return retrypassword;
+    }
+
+    public static void setLogin_Attempts_Remain(int login_Attempts_Remain) {
+        User.login_Attempts_Remain = login_Attempts_Remain;
+    }
+
+    public static int getLogin_Attempts_Remain() {
+        return login_Attempts_Remain;
     }
 
     public void setRetrypassword(String retrypassword) {

@@ -24,8 +24,9 @@ public class Cashier extends User {
     }
 
     public String tofile() {
-        return ("Cashier , Name" + this.getFirstname() + ", " + this.getUserName() + ", " + this.getGmail() + ", "
-                + this.getPassword() + ",UserID " + this.getUserID() + ", Can View Sales: " + this.canViewSales);
+        return "Cashier," + this.getFirstname() + "," + this.getUserName() + ","
+                + this.getGmail() + "," + this.getPassword() + "," + this.getUserID()
+                + "," + this.canViewSales;
     }
 
 }

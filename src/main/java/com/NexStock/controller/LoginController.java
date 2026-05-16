@@ -118,7 +118,8 @@ public class LoginController {
                     }
 
                 }
-                break;
+
+                break;// if user is found then we will break the loop to exit and save time.
             }
         }
 

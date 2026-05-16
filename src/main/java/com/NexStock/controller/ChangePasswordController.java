@@ -36,7 +36,7 @@ public class ChangePasswordController {
     }
 
     @FXML
-    public void clickedforgot(ActionEvent e) {
+    public void checkPassword(ActionEvent e) {
         IO.filereader("User.txt");
 
         for (User this_userhas : IO.readList_Users) {

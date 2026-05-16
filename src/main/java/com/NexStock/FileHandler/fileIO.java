@@ -22,7 +22,7 @@ public class fileIO {
                     String username = lineofcode[2];
                     String gmail = lineofcode[3];
                     String ID = lineofcode[4];
-                    boolean accesslevel = Boolean.parseBoolean(lineofcode[5]);
+                    String accessLevel = lineofcode[5];
                     boolean canAddProduct = Boolean.parseBoolean(lineofcode[6]);
                     boolean canDeleteProduct = Boolean.parseBoolean(lineofcode[7]);
                     boolean canManageUsers = Boolean.parseBoolean(lineofcode[8]);
@@ -35,7 +35,7 @@ public class fileIO {
 
                 } else if (line.contains("Cashier")) {
                     String lineofcode[] = line.split(",");
-                    String role = lineofcode[0];
+
                     String name = lineofcode[1];
                     String username = lineofcode[2];
                     String gmail = lineofcode[3];

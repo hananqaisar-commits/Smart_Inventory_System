@@ -24,7 +24,7 @@ public class Admin extends User {
 
     }
 
-    public Admin(String firstname, String userName, String gmail, String userID, String password, String accessLevel,
+    public Admin(String firstname, String userName, String gmail, String userID, String password, String role,
             boolean canAddProduct, boolean canDeleteProduct, boolean canManageUsers, boolean canViewReports) {// this
                                                                                                               // constructor
                                                                                                               // for
@@ -34,9 +34,9 @@ public class Admin extends User {
                                                                                                               // file
                                                                                                               // data
 
-        super(firstname, userName, gmail, password, password);
+        super(firstname, userName, gmail, userID, password);
 
-        this.accessLevel = accessLevel;
+        this.accessLevel = role;
         this.canAddProduct = canAddProduct;
         this.canDeleteProduct = canDeleteProduct;
         this.canManageUsers = canManageUsers;

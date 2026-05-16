@@ -1,0 +1,2 @@
+Cashier,Hanan Qaisar,hanan,null,c91efccaa4e7ed9ea585bd8e04e68d856926b522d4451d0a054a477bf7cb0288,CA01,true
+Admin,Ahtisham Qaisar,ahtisham,null,AD01,standard,true,true,true,true,9106069c5cf94ed5fa7861791619f8e20e50c2a58453d4459a8e09d9c4676dcc

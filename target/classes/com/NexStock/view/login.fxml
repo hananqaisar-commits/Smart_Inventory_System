@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
@@ -9,63 +10,46 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="672.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.NexStock.controller.LoginController">
+<BorderPane prefHeight="672.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.NexStock.controller.LoginController">
     <left>
         <AnchorPane prefWidth="220.0">
             <children>
-                <ImageView fitHeight="675.0" fitWidth="290.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="false"
-                           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0"
-                           AnchorPane.topAnchor="0.0">
+                <ImageView fitHeight="675.0" fitWidth="290.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <image>
-                        <Image url="@../images/2.png"/>
+                        <Image url="@../images/2.png" />
                     </image>
                 </ImageView>
             </children>
         </AnchorPane>
     </left>
     <center>
-        <VBox alignment="CENTER" prefHeight="663.0" prefWidth="553.0" spacing="25.0"
-              style="-fx-background-color: #0B0F19;">
+        <VBox alignment="CENTER" prefHeight="663.0" prefWidth="553.0" spacing="25.0" style="-fx-background-color: #0B0F19;">
             <children>
                 <AnchorPane maxWidth="300.0" prefWidth="300.0">
                     <children>
-                        <TextField fx:id="username" prefHeight="40.0" prefWidth="300.0" promptText="Username"
-                                   style="-fx-background-radius: 14; -fx-border-radius: 14; -fx-padding: 0 40 0 15; -fx-border-color: #90EE90;"/>
-                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="265.0" layoutY="9.0" pickOnBounds="true"
-                                   preserveRatio="true">
+                        <TextField fx:id="username" prefHeight="40.0" prefWidth="300.0" promptText="Username" style="-fx-background-radius: 14; -fx-border-radius: 14; -fx-padding: 0 40 0 15; -fx-border-color: #90EE90;" />
+                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="265.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/user.png"/>
+                                <Image url="@../images/user.png" />
                             </image>
                         </ImageView>
                     </children>
                 </AnchorPane>
                 <AnchorPane maxWidth="300.0" prefWidth="300.0">
                     <children>
-                        <PasswordField fx:id="passwordField" prefHeight="40.0" prefWidth="300.0" promptText="Password"
-                                       style="-fx-background-radius: 14; -fx-border-radius: 14; -fx-padding: 0 40 0 15; -fx-border-color: #90EE90;"/>
-                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="265.0" layoutY="9.0" pickOnBounds="true"
-                                   preserveRatio="true">
+                        <PasswordField fx:id="passwordField" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-radius: 14; -fx-border-radius: 14; -fx-padding: 0 40 0 15; -fx-border-color: #90EE90;" />
+                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="265.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/hide.png"/>
+                                <Image url="@../images/hide.png" />
                             </image>
                         </ImageView>
                     </children>
                 </AnchorPane>
-                <Button fx:id="forgotPassword" mnemonicParsing="false" onAction="#clickedforgot" prefHeight="20.0"
-                        prefWidth="201.0"
-                        style="-fx-background-color: #121826; -fx-border-color: #90EE90; -fx-background-radius: 40; -fx-border-radius: 40;"
-                        text="Forgot Password? click here" textFill="WHITE"/>
-                <Button fx:id="newUser" mnemonicParsing="false" onAction="#createUser" prefHeight="26.0"
-                        prefWidth="192.0"
-                        style="-fx-background-color: #121826; -fx-border-radius: 40; -fx-border-color: #90EE90; -fx-background-radius: 40;"
-                        text="New user? Create Account" textFill="WHITE"/>
-                <Button fx:id="loginbtn" mnemonicParsing="false" onAction="#handleLogin" prefHeight="38.0"
-                        prefWidth="140.0"
-                        style="-fx-background-color: #121826; -fx-border-color: #90EE90; -fx-background-radius: 22; -fx-border-radius: 22; -fx-font-size: 15px; -fx-font-weight: bold;"
-                        text="Login" textFill="WHITE">
+                <Button fx:id="forgotPassword" mnemonicParsing="false" onAction="#clickedforgot" prefHeight="28.0" prefWidth="253.0" style="-fx-background-color: #121826; -fx-border-color: #90EE90; -fx-background-radius: 40; -fx-border-radius: 40;" text="Want to change Password? click here" textFill="WHITE" />
+                <Button fx:id="newUser" mnemonicParsing="false" onAction="#createUser" prefHeight="26.0" prefWidth="192.0" style="-fx-background-color: #121826; -fx-border-radius: 40; -fx-border-color: #90EE90; -fx-background-radius: 40;" text="New user? Create Account" textFill="WHITE" />
+                <Button fx:id="loginbtn" mnemonicParsing="false" onAction="#handleLogin" prefHeight="38.0" prefWidth="140.0" style="-fx-background-color: #121826; -fx-border-color: #90EE90; -fx-background-radius: 22; -fx-border-radius: 22; -fx-font-size: 15px; -fx-font-weight: bold;" text="Login" textFill="WHITE">
                     <VBox.margin>
-                        <Insets top="60.0"/>
+                        <Insets top="60.0" />
                     </VBox.margin>
                 </Button>
             </children>
