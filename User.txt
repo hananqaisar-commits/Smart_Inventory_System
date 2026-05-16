@@ -1,2 +1,4 @@
-Cashier,Hanan Qaisar,hanan,null,c91efccaa4e7ed9ea585bd8e04e68d856926b522d4451d0a054a477bf7cb0288,CA01,true
-Admin,Ahtisham Qaisar,ahtisham,null,AD01,standard,true,true,true,true,9106069c5cf94ed5fa7861791619f8e20e50c2a58453d4459a8e09d9c4676dcc
+Admin,Hanan Qaisar,hanan,@,AD01,Admin,true,true,true,true,fc664a13c5fe87d4f1b28dc0b5d82079e7451dfe58851f702e9cc6ac3c08611b
+Admin,Ahtisham Qaisar,tidi,@gmail,AD02,Admin,true,true,true,true,c91efccaa4e7ed9ea585bd8e04e68d856926b522d4451d0a054a477bf7cb0288
+Cashier,Huda Qaisar,dhudha,@gmail,fc664a13c5fe87d4f1b28dc0b5d82079e7451dfe58851f702e9cc6ac3c08611b,CA01,true
+Admin,Areesh Qaisar,sheesha,@gmail,AD03,Admin,true,true,true,true,fc664a13c5fe87d4f1b28dc0b5d82079e7451dfe58851f702e9cc6ac3c08611b

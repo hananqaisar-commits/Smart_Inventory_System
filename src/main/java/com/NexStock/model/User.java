@@ -58,6 +58,10 @@ public abstract class User {
         return retrypassword;
     }
 
+    public void setPasswordHashed(String hashed) {
+        this.password = hashed;
+    }
+
     public static void setLogin_Attempts_Remain(int login_Attempts_Remain) {
         User.login_Attempts_Remain = login_Attempts_Remain;
     }

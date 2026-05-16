@@ -29,9 +29,10 @@ public class fileIO {
                     boolean canViewReports = Boolean.parseBoolean(lineofcode[9]);
                     String password = lineofcode[10];
 
-                    readList_Users
-                            .add(new Admin(name, username, gmail, ID, password, role, canAddProduct, canDeleteProduct,
-                                    canManageUsers, canViewReports));
+                    Admin a = new Admin(name, username, gmail, ID, "", role, canAddProduct, canDeleteProduct,
+                            canManageUsers, canViewReports);
+                    a.setPasswordHashed(password);// this was main bug of my programme
+                    readList_Users.add(a);
 
                 } else if (line.contains("Cashier")) {
                     String lineofcode[] = line.split(",");
@@ -42,7 +43,10 @@ public class fileIO {
                     String password = lineofcode[4];
                     String ID = lineofcode[5];
                     boolean canViewSales = Boolean.parseBoolean(lineofcode[6]);
-                    readList_Users.add(new Cashier(name, username, gmail, ID, password, canViewSales));
+
+                    Cashier c = new Cashier(name, username, gmail, ID, "", canViewSales);
+                    c.setPasswordHashed(password);
+                    readList_Users.add(c);
                 }
             }
             bfr.close();
@@ -80,7 +84,7 @@ public class fileIO {
         try {
             BufferedWriter rm = new BufferedWriter(new FileWriter(datafileName));
             rm.write("");
-            System.out.println("Empty text file");
+            System.out.println("Text file is cleared now");
             rm.close();
         } catch (IOException io) {
             io.printStackTrace();

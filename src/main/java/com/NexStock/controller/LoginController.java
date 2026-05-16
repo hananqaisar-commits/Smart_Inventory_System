@@ -53,7 +53,6 @@ public class LoginController {
             chngctrl.setUsername(username.getText());
             Stage stage = new Stage();
             stage.setTitle("Change Password");
-
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -62,7 +61,6 @@ public class LoginController {
             exception.printStackTrace();
         }
     }
-
     @FXML
     public void createUser(ActionEvent e) throws IOException {
         Stage stage = new Stage();
@@ -72,7 +70,6 @@ public class LoginController {
         stage.show();
 
     }
-
     @FXML
     public void handleLogin(ActionEvent e) {
 
