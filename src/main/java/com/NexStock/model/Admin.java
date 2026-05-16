@@ -1,8 +1,5 @@
 package com.NexStock.model;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class Admin extends User {
 
     // Admin specific fields
@@ -25,6 +22,25 @@ public class Admin extends User {
         this.canManageUsers = true;
         this.canViewReports = true;
 
+    }
+
+    public Admin(String firstname, String userName, String gmail, String userID, String password, String accessLevel,
+            boolean canAddProduct, boolean canDeleteProduct, boolean canManageUsers, boolean canViewReports) {// this
+                                                                                                              // constructor
+                                                                                                              // for
+                                                                                                              // recreate
+                                                                                                              // object
+                                                                                                              // from
+                                                                                                              // file
+                                                                                                              // data
+
+        super(firstname, userName, gmail, password, password);
+
+        this.accessLevel = accessLevel;
+        this.canAddProduct = canAddProduct;
+        this.canDeleteProduct = canDeleteProduct;
+        this.canManageUsers = canManageUsers;
+        this.canViewReports = canViewReports;
     }
 
     // Setter & Getters
@@ -119,15 +135,15 @@ public class Admin extends User {
     }
 
     public String tofile() {
-        return ("Admin ---> Name: " + this.getFirstname() + ", ID: " + this.getUserID() + ", Access Level: "
-                + this.accessLevel + ", Can Add Product: " + this.canAddProduct + ", Can Delete Product: "
-                + this.canDeleteProduct + ", Can Manage Users: " + this.canManageUsers + ", Can View Reports: "
-                + this.canViewReports + ", Password: " + this.getPassword());
+        return "Admin,"
+                + this.getFirstname() + "," + this.getUserName() + "," + this.getGmail() + "," + this.getUserID() + ","
+                + this.accessLevel + "," + this.canAddProduct + "," + this.canDeleteProduct + "," + this.canManageUsers
+                + "," + this.canViewReports + "," + this.getPassword();
     }
 
     @Override
     public String toString() {
-        return "Admin   ---> {" +
+        return "Admin{" +
                 "accessLevel='" + accessLevel + '\'' +
                 ", canAddProduct=" + canAddProduct +
                 ", canDeleteProduct=" + canDeleteProduct +

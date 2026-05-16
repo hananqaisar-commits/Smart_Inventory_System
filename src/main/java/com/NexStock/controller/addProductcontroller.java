@@ -38,14 +38,15 @@ public class addProductcontroller {
     @FXML
     private DatePicker datePicker;
     @FXML
-    private TextArea suppliernameID;
+    private TextField suppliernameID;
     @FXML
     private Button saveproductbutton;
 
-    @FXML
     public void initialize() {
-        productcat.getItems().addAll();
-
+        productcat.getItems().addAll(Product.productlist.values());
+        SpinnerValueFactory<Integer> spinnervalue = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 11000);
+        spinnervalue.setValue(1);
+        spinn.setValueFactory(spinnervalue);
     }
 
     public void switchDashboard(ActionEvent event) {
@@ -59,17 +60,19 @@ public class addProductcontroller {
     @FXML
     public void saveproductbuttonClicked(ActionEvent event) {
 
-        spinn.increment();
-        spinn.decrement();
-        int n = spinn.getValue();
-
         LocalDate date = datePicker.getValue();// to get calender on datepicker
         if (date != null) {
             System.out.println(date.toString());
         }
 
+        String quantity1 = pprID.getText().trim();
+        String quantity2 = stockquantityID.getText().trim();
 
-        switch (productcat.getValue()) {//here i used enum that i created in product class
+        if (quantity2.isEmpty())// it is imp it check box is empty or not
+            if (quantity1.isEmpty())
+                return;
+
+        switch (productcat.getValue()) {// here i used enum that i created in product class
             case Accessory:
                 products.add(new Accessory(productname.getText(), productcat.getValue().toString(),
                         Double.parseDouble(pprID.getText()),
@@ -112,7 +115,7 @@ public class addProductcontroller {
 
         fileIO IO = new fileIO();
         for (Product n_product : products) {
-            if (n_product instanceof Accessory ac) {//used in modern java reduce code
+            if (n_product instanceof Accessory ac) {// used in modern java reduce code
                 IO.filewriter("Products.txt", ac.tofile());
             } else if (n_product instanceof Clothing cl) {
                 IO.filewriter("Products.txt", cl.tofile());
