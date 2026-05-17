@@ -7,9 +7,9 @@ public class Crockery extends Product {
 
     private static int count1;
 
-    public Crockery(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
-            String supplierName) {
-        super(pdname, category, unitPrice, stockQuantity, reorderlevel, supplierName);
+    public Crockery(String pdname, String category, double unitPrice, int reorderlevel,
+                    String supplierName) {
+        super(pdname, category, unitPrice, reorderlevel, supplierName);
     }
 
     @Override
@@ -20,6 +20,6 @@ public class Crockery extends Product {
     public String tofile() {
         return this.ID_Generator()
                 + (", Crockery: " + this.getPdname() + ", " + this.getCategory() + ", " + this.getUnitPrice() + ", "
-                        + this.getStockQuantity() + ", " + this.getReorderlevel() + ", " + this.getSupplierName());
+                + ", " + this.getReorderlevel() + ", " + this.getSupplierName());
     }
 }

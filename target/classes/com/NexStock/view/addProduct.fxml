@@ -133,10 +133,9 @@
                             <children>
                                 <StackPane>
                                     <children>
-                                        <TextField fx:id="stockquantityID" prefHeight="43.0" prefWidth="389.0" style="-fx-background-radius: 14; -fx-border-radius: 14;" />
-                                        <Spinner fx:id="spinn" prefHeight="26.0" prefWidth="110.0" style="-fx-background-radius: 60;">
+                                        <Spinner fx:id="spinn" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 60;">
                                             <StackPane.margin>
-                                                <Insets left="200.0" />
+                                                <Insets left="30.0" />
                                             </StackPane.margin>
                                         </Spinner>
                                     </children>
@@ -170,13 +169,26 @@
                 </VBox>
             </children>
         </GridPane>
+      <Label fx:id="errortext" alignment="CENTER" prefHeight="16.0" prefWidth="273.0" textFill="RED">
+         <VBox.margin>
+            <Insets left="300.0" />
+         </VBox.margin>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
         <Button fx:id="saveproductbutton" mnemonicParsing="false" onAction="#saveproductbuttonClicked" prefHeight="60.0" prefWidth="316.0" style="-fx-background-radius: 14; -fx-border-radius: 14; -fx-background-color: #0D47A1;" text="Save Product" textFill="WHITE">
             <VBox.margin>
-                <Insets left="280.0" top="40.0" />
+                <Insets left="280.0" top="10.0" />
             </VBox.margin>
             <font>
                 <Font name="System Bold" size="26.0" />
             </font>
+        </Button>
+        <Button fx:id="backButton" mnemonicParsing="false" onAction="#switchDashboard" prefHeight="26.0" prefWidth="59.0" text="Back">
+            <VBox.margin>
+                <Insets left="410.0" top="10.0" />
+            </VBox.margin>
         </Button>
     </children>
 </VBox>

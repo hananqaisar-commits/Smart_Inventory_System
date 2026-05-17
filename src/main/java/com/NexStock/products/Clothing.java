@@ -6,9 +6,9 @@ public class Clothing extends Product {
 
     private static int count6;
 
-    public Clothing(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
-            String supplierName) {
-        super(pdname, category, unitPrice, stockQuantity, reorderlevel, supplierName);
+    public Clothing(String pdname, String category, double unitPrice, int reorderlevel,
+                    String supplierName) {
+        super(pdname, category, unitPrice, reorderlevel, supplierName);
     }
 
     @Override
@@ -19,7 +19,7 @@ public class Clothing extends Product {
     public String tofile() {
         return this.ID_Generator()
                 + (", Clothing: " + this.getPdname() + ", " + this.getCategory() + ", " + this.getUnitPrice() + ", "
-                        + this.getStockQuantity() + ", " + this.getReorderlevel() + ", " + this.getSupplierName());
+                + ", " + this.getReorderlevel() + ", " + this.getSupplierName());
     }
 
 }

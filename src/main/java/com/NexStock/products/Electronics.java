@@ -6,9 +6,9 @@ public class Electronics extends Product {
 
     private static int count1;
 
-    public Electronics(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
-            String supplierName) {
-        super(pdname, category, unitPrice, stockQuantity, reorderlevel, supplierName);
+    public Electronics(String pdname, String category, double unitPrice, int reorderlevel,
+                       String supplierName) {
+        super(pdname, category, unitPrice, reorderlevel, supplierName);
     }
 
     @Override
@@ -19,7 +19,7 @@ public class Electronics extends Product {
     public String tofile() {
         return this.ID_Generator()
                 + (", Electronics: " + this.getPdname() + ", " + this.getCategory() + ", " + this.getUnitPrice() + ", "
-                        + this.getStockQuantity() + ", " + this.getReorderlevel() + ", " + this.getSupplierName());
+                + ", " + this.getReorderlevel() + ", " + this.getSupplierName());
     }
 
 }

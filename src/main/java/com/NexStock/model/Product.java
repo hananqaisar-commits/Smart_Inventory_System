@@ -24,8 +24,8 @@ public abstract class Product implements Comparable<Product>, StockObserver {
         Accessory, Clothing, Crockery, Electronics, Furniture, Grocery
     }
 
-    public Product(String pdname, String category, double unitPrice, int stockQuantity, int reorderlevel,
-            String supplierName) {
+    public Product(String pdname, String category, double unitPrice, int reorderlevel,
+                   String supplierName) {
 
         if (pdname == null || pdname.trim().isEmpty()) {
             System.out.println("Invalid");
@@ -41,11 +41,6 @@ public abstract class Product implements Comparable<Product>, StockObserver {
         else
             System.out.println("INVALID");
 
-        if (stockQuantity < 0) {
-            System.out.println("INVALID");
-        } else {
-            this.stockQuantity = stockQuantity;
-        }
 
         if (reorderlevel < 0) {
             System.out.println("INVALID");
