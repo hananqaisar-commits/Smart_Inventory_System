@@ -37,13 +37,23 @@ public class ChangePasswordController {
 
     @FXML
     public void checkPassword(ActionEvent e) {
+        boolean found = false;
         IO.filereader("User.txt");
 
         for (User this_userhas : IO.readList_Users) {
-            if (this_userhas.getUserName().equals(username.getText()))
+
+            if (this_userhas.getUserName().equals(username.getText())) {
+                found = true;
+
                 if (this_userhas.getPassword().equals(p1.hashAlgorithm(oldPassword.getText()))) {
-                    this_userhas.changePassword(oldPassword.getText(), newPassword.getText(), retypePassword.getText());
-                    IO.clearfile("User.txt");
+                    IO.clearfile("User.txt");// if password match then clear the file first
+                    this_userhas.changePassword(oldPassword.getText(), newPassword.getText(), retypePassword.getText());// this
+                                                                                                                        // is
+                                                                                                                        // defined
+                                                                                                                        // method
+                                                                                                                        // in
+                                                                                                                        // User
+                                                                                                                        // class
                     for (User writeuser : IO.readList_Users) {
                         if (writeuser instanceof Admin a) {
                             IO.filewriter("User.txt", a.tofile());
@@ -52,8 +62,13 @@ public class ChangePasswordController {
                         }
                     }
                 } else {
-                    System.out.println("Next User " + this_userhas.getUserName());
+                    System.out.println("Not found. Try Next User " + this_userhas.getUserName());
                 }
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("User doesn't Exist");
         }
     }
 }

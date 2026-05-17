@@ -14,8 +14,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
-import com.NexStock.model.User;
-import java.util.ArrayList;
+
 import com.NexStock.FileHandler.*;
 
 public class LoginController {
@@ -43,15 +42,28 @@ public class LoginController {
     @FXML
     public void clickedforgot(ActionEvent event) {
         try {
+            boolean found = false;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/NexStock/view/changePassword.fxml"));
             Parent root = loader.load();
             ChangePasswordController chngctrl = loader.getController();// to pass username to other stage
             if (username.getText().trim().isEmpty()) {
-                showAlert(" Error", "Username cannot be empty.");// here if username is empty then show alert msg
+                showAlert("Error", "Username cannot be empty");
+                return;
+            } else {
+                IO.filereader("User.txt");//first read from list and store in readlist_user
+                for (User this_user : IO.readList_Users) {//now check here
+                    if (this_user.getUserName().equals(username.getText())) {
+                        chngctrl.setUsername(username.getText());
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            if (!found) {
+                showAlert("Error", "Username no exist. Create your account first");
                 return;
             }
-            chngctrl.setUsername(username.getText());
-            Stage stage = new Stage();
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             stage.setTitle("Change Password");
             stage.setScene(new Scene(root));
             stage.show();
@@ -61,6 +73,7 @@ public class LoginController {
             exception.printStackTrace();
         }
     }
+
     @FXML
     public void createUser(ActionEvent e) throws IOException {
         Stage stage = new Stage();
@@ -70,6 +83,7 @@ public class LoginController {
         stage.show();
 
     }
+
     @FXML
     public void handleLogin(ActionEvent e) {
 
@@ -98,7 +112,7 @@ public class LoginController {
                     Sceneswitches.now_switchin("Dashboard.fxml");
 
                 } else {// i hve to lock account if user enter wrong password 3 times so i have to
-                        // decrease login attempt and if it is 0 then lock account
+                    // decrease login attempt and if it is 0 then lock account
                     System.out.println("Login failed for user: " + user);
                     User.setLogin_Attempts_Remain(User.getLogin_Attempts_Remain() - 1);
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -107,15 +121,12 @@ public class LoginController {
                     alert.setContentText("You have " + User.getLogin_Attempts_Remain() + " login attempts remaining.");
                     alert.resizableProperty().set(false);
                     alert.showAndWait();
-
                     if (User.getLogin_Attempts_Remain() <= 0) {
                         showAlert("Account Locked", "Too many failed login attempts. Your account has been locked.");
                         login_User.setLocked(true);
                         return;
                     }
-
                 }
-
                 break;// if user is found then we will break the loop to exit and save time.
             }
         }
@@ -132,4 +143,5 @@ public class LoginController {
         alert.resizableProperty().set(false);
         alert.showAndWait();
     }
+
 }

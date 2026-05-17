@@ -145,7 +145,6 @@ public class createAccount {
             }
 
         }
-
         if (accountcreated) {
             System.out.println("Changing Scene ... ");
             Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();

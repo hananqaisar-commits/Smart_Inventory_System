@@ -21,6 +21,7 @@ com/NexStock/security/Password_Generator.class
 com/NexStock/products/Crockery.class
 com/NexStock/products/Electronics.class
 com/NexStock/products/Accessory.class
+com/NexStock/controller/dashboardcontroller.class
 com/NexStock/controller/addProductcontroller.class
 com/NexStock/controller/createAccount.class
 com/NexStock/model/Product$productlist.class

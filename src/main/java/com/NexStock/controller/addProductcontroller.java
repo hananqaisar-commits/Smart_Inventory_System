@@ -50,9 +50,10 @@ public class addProductcontroller {
     }
 
     public void switchDashboard(ActionEvent event) {
+
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         Sceneswitches.setStage(stage);
-        Sceneswitches.now_switchin("Dashboard.fxml");
+        Sceneswitches.now_switchin("addProduct.fxml");
     }
 
     ArrayList<Product> products = new ArrayList<>();
