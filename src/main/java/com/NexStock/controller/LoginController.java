@@ -1,6 +1,7 @@
 package com.NexStock.controller;
 
 import com.NexStock.FileHandler.fileIO;
+import com.NexStock.model.Cashier;
 import com.NexStock.model.User;
 import com.NexStock.security.Password_Hasher;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -50,8 +52,8 @@ public class LoginController {
                 showAlert("Error", "Username cannot be empty");
                 return;
             } else {
-                IO.filereader("User.txt");//first read from list and store in readlist_user
-                for (User this_user : IO.readList_Users) {//now check here
+                IO.filereader("User.txt");// first read from list and store in readlist_user
+                for (User this_user : IO.readList_Users) {// now check here
                     if (this_user.getUserName().equals(username.getText())) {
                         chngctrl.setUsername(username.getText());
                         found = true;
@@ -65,6 +67,7 @@ public class LoginController {
             }
             Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             stage.setTitle("Change Password");
+            stage.setResizable(false);
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -77,6 +80,7 @@ public class LoginController {
     @FXML
     public void createUser(ActionEvent e) throws IOException {
         Stage stage = new Stage();
+        stage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/NexStock/view/createAccount.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));
@@ -94,7 +98,6 @@ public class LoginController {
             showAlert("Input Error", "Username cannot be empty.");
             return;
         }
-
         boolean userFound = false;
         IO.filereader("User.txt");
         for (User login_User : IO.readList_Users) {
@@ -105,12 +108,23 @@ public class LoginController {
                     return;
                 }
                 if (login_User.getPasswordHashed().equals(pass)) {
-                    Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
-                    Sceneswitches.setStage(stage);
-                    System.out.println("Login successful from file for user: " + user);
-                    User.setLogin_Attempts_Remain(3);// if succesfull then set limit again to 3 for next time
-                    Sceneswitches.now_switchin("Dashboard.fxml");
+                    if (login_User.getClass().getSimpleName().equals("Admin")) {
+                        Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
+                        stage.setResizable(false);
+                        Sceneswitches.setStage(stage);
+                        System.out.println("Login successful from file for user: " + user);
 
+                        User.setLogin_Attempts_Remain(3);// if succesfull then set limit again to 3 for next time
+                        Sceneswitches.now_switchin("Dashboard.fxml");
+                    } else if (login_User.getClass().getSimpleName().equals("Cashier")) {
+                        Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
+                        stage.setResizable(false);
+                        Sceneswitches.setStage(stage);
+                        System.out.println("Login successful from file for user: " + user);
+                        User.setLogin_Attempts_Remain(3);// if succesfull then set limit again to 3 for next time
+
+                        Sceneswitches.now_switchin("Dashboard_Cashier.fxml");
+                    }
                 } else {// i hve to lock account if user enter wrong password 3 times so i have to
                     // decrease login attempt and if it is 0 then lock account
                     System.out.println("Login failed for user: " + user);

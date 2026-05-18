@@ -1,2 +1,6 @@
-Admin,Hanan,han,hanan@,AD03,Admin,true,true,true,true,fc664a13c5fe87d4f1b28dc0b5d82079e7451dfe58851f702e9cc6ac3c08611b
-Admin,hanan,316,@gmail.com,AD01,standard,true,true,true,true,c91efccaa4e7ed9ea585bd8e04e68d856926b522d4451d0a054a477bf7cb0288
+Admin,Hanan,han,hanan@,AD06,Admin,true,true,true,true,fc664a13c5fe87d4f1b28dc0b5d82079e7451dfe58851f702e9cc6ac3c08611b
+Admin,hanan,316,@gmail.com,AD07,Admin,true,true,true,true,c91efccaa4e7ed9ea585bd8e04e68d856926b522d4451d0a054a477bf7cb0288
+Admin,aftab,aftab Riaz,aftabriaz78234@gameil.asefods,AD08,Admin,true,true,true,true,1aaaf505cc15b76cdb27c7d729c110faa790a80d055211fbfa9024cbee3fb0cb
+Admin,haris,Mirza,null,AD09,Admin,true,true,true,true,aa02b4f57615e448073804f0b81eb05ddffae1782c8999370e2bdcce1aa804cc
+Admin,aftab,M.aftab,null,AD10,Admin,true,true,true,true,1aaaf505cc15b76cdb27c7d729c110faa790a80d055211fbfa9024cbee3fb0cb
+Cashier,hanan,hanan,null,c91efccaa4e7ed9ea585bd8e04e68d856926b522d4451d0a054a477bf7cb0288,CA02,true

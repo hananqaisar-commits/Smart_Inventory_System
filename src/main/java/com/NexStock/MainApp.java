@@ -9,6 +9,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) {//here a controller object is created
         System.out.println("App starting, setting stage... let's goooooo (' ? ')");//Just for fun
+        stage.setResizable(false);
         Sceneswitches.setStage(stage);
         Sceneswitches.now_switchin("login.fxml");
     }

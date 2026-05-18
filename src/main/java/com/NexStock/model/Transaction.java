@@ -3,7 +3,7 @@ package com.NexStock.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-class Transaction {
+public class Transaction {
 
     private String invoiceID;
     ArrayList<InvoiceItem> items;
@@ -33,7 +33,28 @@ class Transaction {
         }
     }
 
-    double totalCompute() {
+
+    public String getInvoiceID() {
+        return invoiceID;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public double getTaxAmount() {
+        return taxAmount;
+    }
+
+    public ArrayList<InvoiceItem> getItems() {
+        return items;
+    }
+
+    public double totalCompute() {
         double grandTotal = 0;
         double finalAmount = 0;
         for (InvoiceItem list : items) {

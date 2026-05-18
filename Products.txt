@@ -1,1 +1,18 @@
-CL002, Clothing: cloth, Clothing, 3230.0, , 1, Ali, 1, 2026-04-29
+AC007, Bluetooth Speaker, Accessory, 5500.0, JBL, 15, TechZone, 5, 2026-05-18
+AC008, Earbuds, Accessory, 3200.0, Samsung, 0, DigitalHub, 3, 2026-05-18
+CL007, Formal Shirt, Clothing, 2200.0, Outfitters, 25, FashionHub, 6, 2026-05-18
+CL008, Winter Coat, Clothing, 6000.0, Zara, 0, ClothingMart, 8, 2026-05-18
+CR006, Plate Set, Crockery, 2800.0, Master, 18, HomeStore, 5, 2026-05-18
+CR007, Spoon Set, Crockery, 900.0, Ocean, 0, KitchenWorld, 4, 2026-05-18
+EL006, Gaming Laptop, Electronics, 220000.0, HP, 4, TechZone, 2, 2026-05-18
+EL007, Monitor, Electronics, 45000.0, Dell, 10, TechWorld, 5, 2026-05-18
+FU004, Dining Table, Furniture, 35000.0, Interwood, 3, FurniHouse, 1, 2026-05-18
+FU005, Bed Set, Furniture, 85000.0, MoltyFoam, 0, LuxuryLiving, 2, 2026-05-18
+GR004, Flour Bag, Grocery, 2800.0, Guard, 40, Metro, 10, 2026-05-18
+GR005, Tea Pack, Grocery, 1500.0, Lipton, 0, AlFatah, 5, 2026-05-18
+EL006, TV, Electronics, 67000.9, null, 0, Ali, 1, null, 1, 2026-05-18
+EL017, TV, Electronics, 857658.0, null, 0, Ali Hamza, 1, null, 1, 2026-05-01
+EL006, hbnthnt, Electronics, 432423.0, null, 0, wgwrg, 3, null, 3, 2026-05-07
+CR004, ewrfwef, Crockery, 4324.0, null, 0, fwef, 1, null, 1, 2026-05-11
+CL004, dsfsdf, Clothing, 23432.0, null, 0, swerwe, 1, null, 1, 2026-05-07
+EL007, TV, Electronics, 888888.0, null, 0, Tidi, 2, null, 2, 2026-05-06

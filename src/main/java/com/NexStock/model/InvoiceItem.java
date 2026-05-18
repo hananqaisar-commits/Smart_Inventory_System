@@ -1,7 +1,7 @@
 
 package com.NexStock.model;
 
-class InvoiceItem {
+public class InvoiceItem {
 
     Product product;
     private int quantitySold;

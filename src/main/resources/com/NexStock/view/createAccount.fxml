@@ -17,10 +17,8 @@
 <AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="0" minWidth="0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.NexStock.controller.createAccount">
 
     <HBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
-        <StackPane>
-            <StackPane maxHeight="Infinity" maxWidth="430" minWidth="430" style="-fx-background-image: url('com/NexStock/images/2.png');                               -fx-background-size: cover;                               -fx-background-position: center;" HBox.hgrow="NEVER" />
-        </StackPane>
-        <VBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" prefHeight="807.0" prefWidth="913.0" style="-fx-background-color: #0B0F19;" HBox.hgrow="ALWAYS">
+         <StackPane maxHeight="Infinity" maxWidth="437.0" minWidth="428.0" prefHeight="800.0" prefWidth="428.0" style="-fx-background-image: url('com/NexStock/images/2.png');                               -fx-background-size: cover;                               -fx-background-position: center;" HBox.hgrow="NEVER" />
+        <VBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" prefHeight="789.0" prefWidth="783.0" style="-fx-background-color: #0B0F19;" HBox.hgrow="ALWAYS">
             <StackPane maxWidth="350">
                 <VBox.margin>
                     <Insets right="120.0" top="30.0" />
@@ -31,7 +29,7 @@
                             <Image url="@../images/user.png" />
                         </image>
                     </ImageView>
-                    <TextField fx:id="fullname" prefHeight="44.0" prefWidth="350.0" promptText="   Full Name" style="-fx-border-radius: 22;                                       -fx-background-radius: 22;                                       -fx-background-color: white;                                       -fx-padding: 0 10 0 45;">
+                    <TextField fx:id="fullname" prefHeight="44.0" prefWidth="350.0" promptText="   Full Name" style="-fx-border-radius: 22; -fx-background-radius: 22; -fx-background-color: white; -fx-padding: 0 10 0 45; -fx-border-color: #90EE90; -fx-border-width: 3;">
                         <font>
                             <Font size="17.0" />
                         </font>
@@ -48,7 +46,7 @@
                     <Insets right="80.0" top="18.0" />
                 </VBox.margin>
                 <AnchorPane prefHeight="44.0" prefWidth="350.0">
-                    <TextField fx:id="username" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   Username" style="-fx-border-radius: 22;                                       -fx-background-radius: 22;                                       -fx-background-color: white;                                       -fx-padding: 0 10 0 45;">
+                    <TextField fx:id="username" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   Username" style="-fx-border-radius: 22; -fx-background-radius: 22; -fx-background-color: white; -fx-padding: 0 10 0 45; -fx-border-color: #90EE90; -fx-border-width: 3;">
                         <font>
                             <Font size="17.0" />
                         </font>
@@ -65,7 +63,7 @@
                     <Insets right="40.0" top="18.0" />
                 </VBox.margin>
                 <AnchorPane prefHeight="44.0" prefWidth="350.0">
-                    <PasswordField fx:id="passwordbutton" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   Password" style="-fx-background-radius: 22;                                          -fx-border-radius: 22;                                          -fx-background-color: white;                                          -fx-padding: 0 10 0 45;">
+                    <PasswordField fx:id="passwordbutton" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   Password" style="-fx-background-radius: 22; -fx-border-radius: 22; -fx-background-color: white; -fx-padding: 0 10 0 45; -fx-border-color: #90EE90; -fx-border-width: 3;">
                         <font>
                             <Font size="17.0" />
                         </font>
@@ -82,7 +80,7 @@
                     <Insets top="20.0" />
                 </VBox.margin>
                 <AnchorPane prefHeight="44.0" prefWidth="350.0">
-                    <PasswordField fx:id="confirmpasswordbutton" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   Confirm Password" style="-fx-background-radius: 22;                                          -fx-border-radius: 22;                                          -fx-background-color: white;                                          -fx-padding: 0 10 0 45;">
+                    <PasswordField fx:id="confirmpasswordbutton" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   Confirm Password" style="-fx-background-radius: 22; -fx-border-radius: 22; -fx-background-color: white; -fx-padding: 0 10 0 45; -fx-border-color: #90EE90; -fx-border-width: 3;">
                         <font>
                             <Font size="17.0" />
                         </font>
@@ -100,7 +98,7 @@
                     <Insets left="40.0" top="18.0" />
                 </VBox.margin>
                 <AnchorPane prefHeight="44.0" prefWidth="350.0">
-                    <TextField fx:id="email" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   E-mail" style="-fx-border-radius: 22;                                       -fx-background-radius: 22;                                       -fx-background-color: white;                                       -fx-padding: 0 10 0 45;">
+                    <TextField fx:id="email" layoutX="0.0" layoutY="0.0" prefHeight="44.0" prefWidth="350.0" promptText="   E-mail" style="-fx-border-radius: 22; -fx-background-radius: 22; -fx-background-color: white; -fx-padding: 0 10 0 45; -fx-border-color: #90EE90; -fx-border-width: 3;">
                         <font>
                             <Font size="17.0" />
                         </font>

@@ -1,6 +1,6 @@
 package com.NexStock.model;
 
-class Customer {
+public class Customer {
 
     private String customerID;
     private String customerName;
@@ -49,6 +49,15 @@ class Customer {
             loyaltyPoints += ((int) (amount / 20));
         }
     }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+    
 
     double redeempoint() {
         double DiscountedAmount = 0;

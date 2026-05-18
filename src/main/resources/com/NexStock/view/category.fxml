@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.NexStock.controller.categorycontroller">
+
+    <content>
+
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="1085.0" spacing="25" style="-fx-background-color: #0B0F19;">
+
+            <padding>
+                <Insets bottom="25" left="25" right="25" top="25" />
+            </padding>
+
+            <children>
+
+                <Label text="Products" textFill="WHITE">
+                    <font>
+                        <Font size="34.0" />
+                    </font>
+                </Label>
+
+                <HBox spacing="14">
+
+                    <children>
+
+                        <Button fx:id="allbutton" mnemonicParsing="false" onAction="#Allbutton" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #2563eb;                                  -fx-text-fill: white;                                  -fx-background-radius: 18;                                  -fx-font-size: 14;" text="All" />
+
+                        <Button fx:id="abutton" mnemonicParsing="false" onAction="#Abutton" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #10b981;                                  -fx-text-fill: white;                                  -fx-background-radius: 18;                                  -fx-font-size: 14;" text="Accessory" />
+
+                        <Button fx:id="gbutton" mnemonicParsing="false" onAction="#Gbuttonn" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #f59e0b;                                  -fx-text-fill: white;                                  -fx-background-radius: 18;                                  -fx-font-size: 14;" text="Grocery" />
+
+                        <Button fx:id="fbutton" mnemonicParsing="false" onAction="#Fbutton" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #ef4444;                                  -fx-text-fill: white;                                  -fx-background-radius: 18;                                  -fx-font-size: 14;" text="Furniture" />
+
+                        <Button fx:id="cbutton" mnemonicParsing="false" onAction="#Cbutton" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #8b5cf6;                                  -fx-text-fill: white;                                  -fx-background-radius: 18;                                  -fx-font-size: 14;" text="Clothes" />
+
+                        <Button fx:id="crbutton" mnemonicParsing="false" onAction="#CRbutton" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #14b8a6;                                  -fx-text-fill: white;                                  -fx-background-radius: 18;                                  -fx-font-size: 14;" text="Crockery" />
+
+                        <Button fx:id="ebutton" mnemonicParsing="false" onAction="#Ebutton" prefHeight="38.0" prefWidth="130.0" style="-fx-background-color: #22c55e;                                  -fx-text-fill: white;                                  -fx-background-radius: 18;                                  -fx-font-size: 14;" text="Electronics" />
+
+                    </children>
+
+                </HBox>
+
+                <HBox spacing="22">
+
+                    <children>
+
+                        <StackPane prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: white;                                     -fx-background-radius: 22;                                     -fx-padding: 20;                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);">
+
+                            <children>
+
+                                <VBox spacing="14">
+
+                                    <children>
+
+                                        <Label text="Total Products">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+
+                                        <Label fx:id="total_Products" textFill="#00aaff">
+
+                                            <font>
+                                                <Font name="System Bold" size="36.0" />
+                                            </font>
+
+                                        </Label>
+
+                                    </children>
+
+                                </VBox>
+
+                            </children>
+
+                        </StackPane>
+
+                        <StackPane prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: white;                                     -fx-background-radius: 22;                                     -fx-padding: 20;                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);">
+
+                            <children>
+
+                                <VBox spacing="14">
+
+                                    <children>
+
+                                        <Label text="In Stock">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+
+                                        <Label fx:id="instock" textFill="#10b981">
+
+                                            <font>
+                                                <Font name="System Bold" size="36.0" />
+                                            </font>
+
+                                        </Label>
+
+                                        <Label fx:id="instock_qty" textFill="#10b981">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Label>
+
+                                    </children>
+
+                                </VBox>
+
+                            </children>
+
+                        </StackPane>
+
+                        <StackPane prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: white;                                     -fx-background-radius: 22;                                     -fx-padding: 20;                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);">
+
+                            <children>
+
+                                <VBox spacing="14">
+
+                                    <children>
+
+                                        <Label text="Low Stock">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+
+                                        <Label fx:id="lowstock" textFill="#f59e0b">
+
+                                            <font>
+                                                <Font name="System Bold" size="36.0" />
+                                            </font>
+
+                                        </Label>
+
+                                        <Label fx:id="lowstock_qty" textFill="#f59e0b">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Label>
+
+                                    </children>
+
+                                </VBox>
+
+                            </children>
+
+                        </StackPane>
+
+                        <StackPane prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: white;                                     -fx-background-radius: 22;                                     -fx-padding: 20;                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);">
+
+                            <children>
+
+                                <VBox spacing="14">
+
+                                    <children>
+
+                                        <Label text="Out Stock">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+
+                                        <Label fx:id="totalstock_Price" textFill="#c90000">
+
+                                            <font>
+                                                <Font name="System Bold" size="36.0" />
+                                            </font>
+
+                                        </Label>
+
+                                        <Label fx:id="outstock_qty" textFill="#c90000">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Label>
+
+                                    </children>
+
+                                </VBox>
+
+                            </children>
+
+                        </StackPane>
+
+                        <StackPane layoutX="676.0" layoutY="10.0" prefHeight="190.0" prefWidth="200.0" style="-fx-background-color: white;                                     -fx-background-radius: 22;                                     -fx-padding: 20;                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);">
+                            <children>
+                                <VBox spacing="14">
+                                    <children>
+                                        <Label text="Total Stock Price">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="totalstock_Price1" textFill="#196f5c">
+                                            <font>
+                                                <Font name="System Bold" size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </StackPane>
+
+                    </children>
+                    <VBox.margin>
+                        <Insets top="40.0" />
+                    </VBox.margin>
+                </HBox>
+
+                <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#backbutton" prefHeight="37.0" prefWidth="145.0" style="-fx-background-color: #0B0F19; -fx-border-color: #90EE90; -fx-border-radius: 40; -fx-background-radius: 40;" text="Back" textFill="WHITE">
+                    <VBox.margin>
+                        <Insets left="410.0" top="30.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+
+            </children>
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>

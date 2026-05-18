@@ -52,14 +52,9 @@ public class addProductcontroller {
         SpinnerValueFactory<Integer> spinnervalue = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 11000);
         spinnervalue.setValue(1);
         spinn.setValueFactory(spinnervalue);
-    }
 
-
-    public void switchDashboard(ActionEvent event) {
-
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        Sceneswitches.setStage(stage);
-        Sceneswitches.now_switchin("Dashboard.fxml");
+        productname.requestFocus();
+        productname.setOnAction(e -> DescriptionID.requestFocus());
 
 
     }
@@ -146,30 +141,32 @@ public class addProductcontroller {
         boolean added = false;
         for (Product n_product : products) {
             if (n_product instanceof Accessory ac) {// used in modern java reduce code
-                IO.filewriter("Products.txt", ac.tofile() + ", " + spinn.getValue() + ", " + date);
+                IO.filewriter("Products.txt", ac.toFile() + ", " + spinn.getValue() + ", " + date);
                 added = true;
             } else if (n_product instanceof Clothing cl) {
-                IO.filewriter("Products.txt", cl.tofile() + ", " + spinn.getValue() + ", " + date);
+                IO.filewriter("Products.txt", cl.toFile() + ", " + spinn.getValue() + ", " + date);
                 added = true;
             } else if (n_product instanceof Crockery cr) {
-                IO.filewriter("Products.txt", cr.tofile() + ", " + spinn.getValue() + ", " + date);
+                IO.filewriter("Products.txt", cr.toFile() + ", " + spinn.getValue() + ", " + date);
                 added = true;
             } else if (n_product instanceof Electronics el) {
-                IO.filewriter("Products.txt", el.tofile() + ", " + spinn.getValue() + ", " + date);
+                IO.filewriter("Products.txt", el.toFile() + ", " + spinn.getValue() + ", " + date);
                 added = true;
             } else if (n_product instanceof Furniture fu) {
-                IO.filewriter("Products.txt", fu.tofile() + ", " + spinn.getValue() + ", " + date);
+                IO.filewriter("Products.txt", fu.toFile() + ", " + spinn.getValue() + ", " + date);
                 added = true;
             } else if (n_product instanceof Grocery gr) {
-                IO.filewriter("Products.txt", gr.tofile() + ", " + spinn.getValue() + ", " + date);
+                IO.filewriter("Products.txt", gr.toFile() + ", " + spinn.getValue() + ", " + date);
 
                 added = true;
             }
-            if (added) {
+            if (added) {//now if added then show on terminal and then automatically it will back
                 System.out.println(n_product.getPdname() + " written to file Products");
-                this.switchDashboard(event);
+                Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                stage.close();
                 break;
-            }
+            } else
+                System.out.println("File not written");
         }
     }
 }

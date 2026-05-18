@@ -1,8 +1,11 @@
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/InvoiceItem.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/ChangePasswordController.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/security/Password_Hasher.java
+/home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/report/ReportFormatter.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/createAccount.java
+/home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/report/ReportManager.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/model/Cashier.java
+/home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/dashboardCashier.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/addProductcontroller.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/products/Grocery.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/products/Clothing.java
@@ -23,5 +26,7 @@
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/FileHandler/fileIO.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/products/Accessory.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/security/Password_Generator.java
+/home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/categorycontroller.java
+/home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/ReportController.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/controller/Sceneswitches.java
 /home/hanan/Desktop/Smart_Inventory_System/src/main/java/com/NexStock/security/BruteForce_Detector.java
