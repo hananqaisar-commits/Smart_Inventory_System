@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -46,8 +48,12 @@ public class dashboardCashier {
     @FXML
     private ListView<String> listid;
 
+
+    @FXML
+    private BarChart<String, Number> weeklySalesChart;
     @FXML
     private Label told;
+
 
     private Image img1_Default, img1_Gif;
     private Image img3_Default, img3_Gif;
@@ -71,6 +77,17 @@ public class dashboardCashier {
     @FXML
     public void initialize() {
         told.setText("Cashier");
+
+        told.setStyle(
+                "-fx-background-color: #1e293b;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-padding: 8 15 8 15;" +
+                        "-fx-background-radius: 10;"
+        );
+
+
         img1_Default = load("/com/NexStock/images/icons8-home-50.png");
         img1_Gif = load("/com/NexStock/images/icons8-home.gif");
         img3_Default = load("/com/NexStock/images/category.png");
@@ -87,6 +104,7 @@ public class dashboardCashier {
 
         IO.productread("Products.txt");
         countProducts();
+        addBarChart();
 
         pieChart.getData().addAll(
                 new PieChart.Data("Electronics", e),
@@ -162,6 +180,21 @@ public class dashboardCashier {
         Sceneswitches.now_switchin("category.fxml");
     }
 
+    @FXML
+    public void addBarChart() {
+        XYChart.Series<String, Number> barchart = new XYChart.Series<>();
+        barchart.setName("Reorder level");
+
+        for (Product p : IO.readList_Products) {
+            barchart.getData().add(
+                    new XYChart.Data<>(p.getPdname(), p.getReorderlevel())
+            );
+        }
+
+        weeklySalesChart.getData().clear();
+        weeklySalesChart.getData().add(barchart);
+    }
+
 
     @FXML
     public void logout(ActionEvent event) {
@@ -170,6 +203,7 @@ public class dashboardCashier {
         Sceneswitches.now_switchin("login.fxml");
         System.out.println("Logout");
     }
+
 
     void countProducts() {
         e = cr = cl = a = f = g = 0;
