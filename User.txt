@@ -4,3 +4,6 @@ Admin,aftab,aftab Riaz,aftabriaz78234@gameil.asefods,AD08,Admin,true,true,true,t
 Admin,haris,Mirza,null,AD09,Admin,true,true,true,true,aa02b4f57615e448073804f0b81eb05ddffae1782c8999370e2bdcce1aa804cc
 Admin,aftab,M.aftab,null,AD10,Admin,true,true,true,true,1aaaf505cc15b76cdb27c7d729c110faa790a80d055211fbfa9024cbee3fb0cb
 Cashier,hanan,hanan,null,c91efccaa4e7ed9ea585bd8e04e68d856926b522d4451d0a054a477bf7cb0288,CA02,true
+Admin,aksam,aksam123,null,AD06,standard,true,true,true,true,9f45595291cac769d1d5264598afd56e6111699b5167a68cdb0760ade6533c17
+Admin,Talal Tariq,talal tariq,null,AD07,standard,true,true,true,true,b1abb074532ad4f3a371d8fa408b9d32a8839a79ce956356f22bbd637f10ebb9
+Admin,ahmed,ahm,null,AD08,standard,true,true,true,true,5c79f1eb2f8ec86f238cbc025e48270ea84c4fbb571464456be0f2c6489ac8f0
