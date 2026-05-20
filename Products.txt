@@ -16,3 +16,4 @@ EL006, hbnthnt, Electronics, 432423.0, null, 0, wgwrg, 3, null, 3, 2026-05-07
 CR004, ewrfwef, Crockery, 4324.0, null, 0, fwef, 1, null, 1, 2026-05-11
 CL004, dsfsdf, Clothing, 23432.0, null, 0, swerwe, 1, null, 1, 2026-05-07
 EL007, TV, Electronics, 888888.0, null, 0, Tidi, 2, null, 2, 2026-05-06
+CR005, kjhkj, Crockery, 1.0, null, 0, sdsfsdf, 3, null, 3, 2026-04-29
