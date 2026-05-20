@@ -6,7 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -66,6 +68,9 @@ public class dashboardcontroller {
     @FXML
     private ListView<String> listid;// it is my listview on dashboard
 
+    @FXML
+    private BarChart<String, Number> weeklySalesChart;
+
     private Image img1_Default, img1_Gif;
     private Image img2_Default, img2_Gif;
     private Image img3_Default, img3_Gif;
@@ -84,7 +89,19 @@ public class dashboardcontroller {
 
     @FXML
     public void initialize() {
+
         told.setText("Admin");
+
+        told.setStyle(
+                "-fx-background-color: #1e293b;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-padding: 8 15 8 15;" +
+                        "-fx-background-radius: 10;"
+        );
+
+        
         img1_Default = load("/com/NexStock/images/icons8-home-50.png");
         img1_Gif = load("/com/NexStock/images/icons8-home.gif");
         img2_Default = load("/com/NexStock/images/icons8-product-50.png");
@@ -113,6 +130,9 @@ public class dashboardcontroller {
 
         IO.productread("Products.txt");
         countProducts();// for countin used in pcategories display on GUI
+
+        addBarChart();
+
         pieChart.getData().addAll(
                 new PieChart.Data("Electronics", e),
                 new PieChart.Data("Clothing", cl),
@@ -252,6 +272,21 @@ public class dashboardcontroller {
         Stage stage = new Stage();
         Sceneswitches.setStage(stage);
         Sceneswitches.now_switchin("category.fxml");
+    }
+
+    @FXML
+    public void addBarChart() {
+        XYChart.Series<String, Number> barchart = new XYChart.Series<>();
+        barchart.setName("Reorder level");
+
+        for (Product p : IO.readList_Products) {
+            barchart.getData().add(
+                    new XYChart.Data<>(p.getPdname(), p.getReorderlevel())
+            );
+        }
+
+        weeklySalesChart.getData().clear();
+        weeklySalesChart.getData().add(barchart);
     }
 
     private int e, cr, cl, a, f, g, total_count = 0;
