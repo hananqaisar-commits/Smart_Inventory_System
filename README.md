@@ -1,6 +1,11 @@
 # Smart Inventry System (NEXSTOCK)
 ---
 
+
+
+## Billing & Transactions
+ . PDF invoice generation (print/export bills)
+. Apply discount codes at checkout
 ```
 .
 ├── bills.txt
@@ -103,7 +108,10 @@
 │       │   └── com
 │       │       └── NexStock
 │       │           ├── controller
-│       │           │   ├── addProductcontroller.java
+│       │           │  Billing & Transactions
+
+    PDF invoice generation (print/export bills)
+    Apply discount codes at checkout ├── addProductcontroller.java
 │       │           │   ├── addUser.java
 │       │           │   ├── categorycontroller.java
 │       │           │   ├── ChangePasswordController.java
