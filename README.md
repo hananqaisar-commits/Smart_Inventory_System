@@ -4,8 +4,17 @@
 
 
 ## Billing & Transactions
- . PDF invoice generation (print/export bills)
+
+. PDF invoice generation (print/export bills)<br>
 . Apply discount codes at checkout
+<br>
+## User & Security
+
+. Role-based permissions (what Cashier can/can't do vs Admin)<br>
+. Login activity log (who logged in, when)
+<br>
+
+
 ```
 .
 ├── bills.txt
