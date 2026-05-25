@@ -2,7 +2,6 @@
 ---
 
 
-
 ## Billing & Transactions
 
 . PDF invoice generation (print/export bills)<br>
@@ -270,6 +269,6 @@
 │   └── test-classes
 └── User.txt
 ```
-
+Actively learning students 
 ## OOP Project (with GUI)
 > Contributor: Hanan Qaisar & Waqar Younas 
